@@ -30,17 +30,19 @@ const webpackConfig = {
 // ------------------------------------
 
 const webpackHotPath = `${config.compiler_public_path}__webpack_hmr`
-const webpackHotMiddlewareEntry = `webpack-hot-middleware/client?${_.map(
-  {
-    path: webpackHotPath, // The path which the middleware is serving the event stream on
-    timeout: 2000, // The time to wait after a disconnection before attempting to reconnect
-    overlay: true, // Set to false to disable the DOM-based client-side overlay.
-    reload: true, // Set to true to auto-reload the page when webpack gets stuck.
-    noInfo: false, // Set to true to disable informational console logging.
-    quiet: false, // Set to true to disable all console logging.
-  },
-  (val, key) => `&${key}=${val}`,
-).join('')}`
+const webpackHotMiddlewareEntry = `webpack-hot-middleware/client?${_
+  .map(
+    {
+      path: webpackHotPath, // The path which the middleware is serving the event stream on
+      timeout: 2000, // The time to wait after a disconnection before attempting to reconnect
+      overlay: true, // Set to false to disable the DOM-based client-side overlay.
+      reload: true, // Set to true to auto-reload the page when webpack gets stuck.
+      noInfo: false, // Set to true to disable informational console logging.
+      quiet: false, // Set to true to disable all console logging.
+    },
+    (val, key) => `&${key}=${val}`,
+  )
+  .join('')}`
 
 const APP_ENTRY = paths.docsSrc('index.js')
 
@@ -87,11 +89,13 @@ webpackConfig.plugins = [
       babel: require('@babel/standalone/package.json').version,
       faker: require('faker/package.json').version,
       jsBeautify: require('js-beautify/package.json').version,
+      less: require('less/package.json').version,
       lodash: require('lodash/package.json').version,
       propTypes: require('prop-types/package.json').version,
       react: require('react/package.json').version,
       reactDOM: require('react-dom/package.json').version,
       sui: require('semantic-ui-css/package.json').version,
+      suiLess: require('semantic-ui-less/package.json').version,
       suir: require('./package.json').version,
     },
   }),
