@@ -247,4 +247,4 @@ task('watch:docs', (cb) => {
 // Default
 // ----------------------------------------
 
-task('docs', series('build:docs', 'serve:docs', 'watch:docs'))
+task('docs', series('build:docs', 'build:docs:less', 'serve:docs', 'watch:docs'))
